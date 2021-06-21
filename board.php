@@ -50,6 +50,7 @@ session_start();
             <?php 
             echo "접속 ID: {$_SESSION['memberid']}";
             ?>
+            <button type="button" onclick="location.href='logout.php'">로그아웃</button>
         </div>
         <h1 align=center>게시판</h1>
         <table align=center>
