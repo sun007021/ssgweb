@@ -21,7 +21,8 @@
         error_log(mysqli_error($conn));
     }
     else{
-        echo "성공";    
+        echo "성공";
+        echo "<script>location.href='login.php'</script>";
     }
     ?>
     </body>
