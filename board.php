@@ -36,7 +36,7 @@ session_start();
                 text-decoration: underline;
         }
         a:link {color : #57A0EE; text-decoration:none;}
-        a:hover { text-decoration : underline;}
+        a:hover { text-decoration : underline;} 
     </style>
     </head>
     <body>
