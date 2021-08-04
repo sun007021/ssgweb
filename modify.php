@@ -5,7 +5,7 @@
     </head>
     <body>
         <?php 
-            $conn=mysqli_connect("localhost","root","kk5144","webproject");
+            $conn=mysqli_connect("localhost","sun","kk514400","webproject");
             $id=$_GET['id'];
             $no=$_GET['no'];
             $sql="SELECT title, content, id from board where no=$no";

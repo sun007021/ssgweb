@@ -41,7 +41,7 @@ session_start();
     </head>
     <body>
     <?php 
-        $conn=mysqli_connect("localhost","root","kk5144","webproject");
+        $conn=mysqli_connect("localhost","sun","kk514400","webproject");
         $sql="SELECT*from board order by no desc";
         $result=mysqli_query($conn,$sql);
         $total=mysqli_num_rows($result);

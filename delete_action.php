@@ -3,7 +3,7 @@
 <head></head>
 <body>
     <?php 
-        $conn=mysqli_connect("localhost","root","kk5144","webproject");
+        $conn=mysqli_connect("localhost","sun","kk514400","webproject");
         $no=$_GET['no'];
         $title=$_GET['title'];
         $content=$_GET['content'];
