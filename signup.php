@@ -4,7 +4,7 @@
     </head>
     <body>
     <?php 
-    $conn=mysqli_connect("localhost","root","kk5144","webproject",3306);
+    $conn=mysqli_connect("localhost","sun","kk514400","webproject",3306);
 
     $hashedpassword=password_hash($_POST['joinpw'], PASSWORD_DEFAULT);
    
