@@ -55,7 +55,10 @@
             $sql="SELECT title, content, id from board where no=$no";
             $result=mysqli_query($conn,$sql);
             $row=mysqli_fetch_assoc($result);
-
+            if (!isset($_SESSION['memberid'])){
+                echo '로그인 해주세요';
+	            exit;
+            } 
         ?>
         <table class="table" align=center>
         <tr>
