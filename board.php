@@ -47,10 +47,14 @@ session_start();
         $total=mysqli_num_rows($result);
         ?>
         <div class=loginedid>
-            <?php 
-            echo "접속 ID: {$_SESSION['memberid']}";
-            ?>
-            <button type="button" onclick="location.href='logout.php'">로그아웃</button>
+            <?php
+                if (!isset($_SESSION['memberid'])){ ?>
+                    <button type="button" onclick="location.href='login.php'">로그인</button>
+               <?php } else{
+                echo "접속 ID: {$_SESSION['memberid']}";
+                ?>
+                <button type="button" onclick="location.href='logout.php'">로그아웃</button>
+            <?php } ?>
         </div>
         <h1 align=center>게시판</h1>
         <table align=center>
