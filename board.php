@@ -74,11 +74,11 @@ session_start();
                 
                     
                 
-                <td width = "50"><?php echo $total?></td>
-                <td width = "500">
+                <td align=center width = "50"><?php echo $total?></td>
+                <td align=center width = "500">
                 <a href = "view.php?no=<?php echo $row['no']?>">
                 <?php echo $row['title']?></td>
-                  <td width = "100" ><?php echo $row['id']?></td>
+                  <td align=center width = "100" ><?php echo $row['id']?></td>
                   
                 </tr>
 
