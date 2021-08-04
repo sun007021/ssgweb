@@ -84,6 +84,9 @@
 
             <button class="bnt" onclick="location.href='delete_action.php?no=<?=$no?>&id=<?=$_SESSION['memberid']?>'">DELETE</button>
         </div>
+        <div class="comment">
+            
+        </div>
 
     </body>
 </html>
