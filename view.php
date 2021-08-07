@@ -43,7 +43,29 @@
             border: 1px solid black;
             border-radius: 15px;
             }
-          
+            
+          /* 댓글 */
+
+            .comment_content {
+                width:700px;
+                height: 56px; 
+            }
+            .comment_write {
+                margin-top:50px;
+            }
+            .com_bnt {
+                position: absolute;
+                width:100px;
+                height:56px;
+                font-size:16px;
+                margin-left: 10px; 
+                
+            }
+            #foot_box {
+                height: 50px; 
+                
+            }
+
         </style>
 
     </head>
@@ -88,9 +110,16 @@
 
             <button class="bnt" onclick="location.href='delete_action.php?no=<?=$no?>&id=<?=$_SESSION['memberid']?>'">DELETE</button>
         </div>
-        <div class="comment">
-            
+        <div align=center class="comment_write">
+            <form action="comment_action.php" method="get">
+                <div style="margin-top:10px;">\
+                    <input type="hidden" name="no" value="<?php echo $no;?>">
+                    <textarea placeholder="댓글을 입력하세요." class="comment_content" name="comment_content"></textarea>
+                    <input type="submit" value="등록">
+                </div>
+            </form>
         </div>
         
+
     </body>
 </html>
