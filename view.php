@@ -55,6 +55,10 @@
             $sql="SELECT title, content, id from board where no=$no";
             $result=mysqli_query($conn,$sql);
             $row=mysqli_fetch_assoc($result);
+
+            $sql2="SELECT nickname, userid, content, date, from comment where board_no=$no";
+            $result2=mysqli_query($conn,$sql2);
+            $row2=mysqli_fetch_assoc($result2);
             if (!isset($_SESSION['memberid'])){
                 echo '로그인 해주세요';
 	            exit;
@@ -87,6 +91,6 @@
         <div class="comment">
             
         </div>
-
+        
     </body>
 </html>
