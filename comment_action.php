@@ -11,7 +11,7 @@
             $no=$_GET['no'];
             #$sql="INSERT into comment (userid, content, date, board_no)
                 #VALUES('{$id}','{$content}','{$date}','{$no}')";
-            $sql="INSERT into comment (board_no, userid, content)
+            $sql="INSERT into comment (board_no, userid, recontent)
                 VALUES('{$no}','{$id}','{$content}')";
 
             $result=mysqli_query($conn, $sql);
