@@ -22,7 +22,6 @@ session_start();
         td{
                 border-bottom: 1px solid #efefef;
                 padding: 10px;
-                align: center;
         }
         table .even{
                 background: #efefef;
