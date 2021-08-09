@@ -51,7 +51,7 @@
                 height: 56px; 
             }
             .comment_write {
-                margin-top:50px;
+                margin-top:30px;
             }
             .com_bnt {
                 position: absolute;
@@ -65,7 +65,31 @@
                 height: 50px; 
                 
             }
-
+            .comment_view{
+                width: 900px;
+                margin-top: 100px;
+                word-break: break-all;
+            }
+            .dat_view{
+                font-size: 14px;
+                padding: 10px 0 15px 0;
+                border-bottom: solid 1px gray;
+            }
+            .dat_edit{
+                width: 520px;
+                height: 70px;
+                position: absolute;
+                top:40px;
+            }
+            .dap_lo{
+                font-size: 14px;
+                padding: 10px 0 15px 0;
+                border-bottom: solid 1px gray;
+            }
+            .dap_to{
+                margin-top: 5px;
+            }
+            
         </style>
 
     </head>
@@ -78,9 +102,8 @@
             $result=mysqli_query($conn,$sql);
             $row=mysqli_fetch_assoc($result);
 
-            $sql2="SELECT nickname, userid, content, date, from comment where board_no=$no";
+            $sql2="SELECT userid, recontent from comment where board_no=$no";
             $result2=mysqli_query($conn,$sql2);
-            $row2=mysqli_fetch_assoc($result2);
             if (!isset($_SESSION['memberid'])){
                 echo '로그인 해주세요';
 	            exit;
@@ -112,14 +135,25 @@
         </div>
         <div align=center class="comment_write">
             <form action="comment_action.php" method="get">
-                <div style="margin-top:10px;">\
+                <div style="margin-top:10px;">
                     <input type="hidden" name="no" value="<?php echo $no;?>">
                     <textarea placeholder="댓글을 입력하세요." class="comment_content" name="comment_content"></textarea>
-                    <input type="submit" value="등록">
+                    <input type="submit" class="com_bnt" value="등록">
                 </div>
             </form>
         </div>
-        
+        <hr align="center" style="width:1000px;">
+        <!--<div class="comment_view"> -->
+            <!--댓글 목록-->
+            <?php
+                while($row2=mysqli_fetch_assoc($result2)){
+            ?>
+            <div class="dap_lo">
+                <div><b><?php echo $row2['userid'];?></b></div>
+                <div class="dap_to"><?php echo $row2['recontent'];?></div>
+            </div>
+            <?php }?>
+        <!--</div>-->
 
     </body>
 </html>
