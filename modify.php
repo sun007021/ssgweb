@@ -10,7 +10,7 @@
             $no=$_GET['no'];
             $sql="SELECT title, content, id from board where no=$no";
             $result=mysqli_query($conn,$sql);
-            
+            $row=mysqli_fetch_assoc($result);
 
             $title=$row['title'];
             $content = $row['content'];
