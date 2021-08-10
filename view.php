@@ -98,7 +98,7 @@
             $conn=mysqli_connect("localhost","sun","kk514400","webproject");
             $no=$_GET['no'];
             session_start();
-            $sql="SELECT title, content, id from board where no=$no";
+            $sql="SELECT title, content, id, file from board where no=$no";
             $result=mysqli_query($conn,$sql);
             $row=mysqli_fetch_assoc($result);
 
@@ -124,7 +124,9 @@
             <?php echo $row['content']?></td>
         </tr>
         </table>
- 
+        <div>
+            파일 : <a href="../upload/<?php echo $row['file'];?>" download><?php echo $row['file']; ?></a>
+        </div>
  
     
         <div class="bnta">
@@ -153,7 +155,7 @@
                 <div class="dap_to"><?php echo $row2['recontent'];?></div>
             </div>
             <?php }?>
-        <!--</div>-->
+        <!--</div> ef-->
 
     </body>
 </html>
