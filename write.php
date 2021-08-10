@@ -31,7 +31,7 @@
 
         </table>
         <div>
-            <input type="file" value="1" name="b_file"/>
+            <input type="file" value="1" id="b_file" name="b_file"/>
         </div>
             <center>
         <input type = "submit" value="작성">
