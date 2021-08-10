@@ -6,7 +6,7 @@
     session_start();
     
 ?>
-    <form method = "get" action = "write_action.php">
+    <form method = "post" action = "write_action.php" enctype="multipart/form-data">
     <table  style="padding-top:50px" align = center width=700 border=0 cellpadding=2 >
     <tr>
     <td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
@@ -30,6 +30,9 @@
         </tr>
 
         </table>
+        <div>
+            <input type="file" value="1" name="b_file"/>
+        </div>
             <center>
         <input type = "submit" value="작성">
         </center>

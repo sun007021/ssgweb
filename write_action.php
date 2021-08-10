@@ -4,9 +4,9 @@
     <body>
         <?php 
             $conn=mysqli_connect("localhost","sun","kk514400","webproject");
-            $id=$_GET['name'];
-            $title=$_GET['title'];
-            $content=$_GET['content'];
+            $id=$_POST['name'];
+            $title=$_POST['title'];
+            $content=$_POST['content'];
 
             $sql="INSERT into board (title, content, id)
                 VALUES('{$title}','{$content}','{$id}')";
