@@ -11,7 +11,7 @@
             $tmpfile=$_FILES['b_file']['tmp_name'];
             $o_name=$_FILES['b_file']['name'];
             $filename=iconv("UTF-8", "EUC_KR",$_FILES['b_file']['name']);
-            $folder="../upload/{$o_name}";
+            $folder="../upload/".$o_name;
             move_uploaded_file($tmpfile,$folder);
 
             $sql="INSERT into board (title, content, id, file)
