@@ -98,7 +98,7 @@
             $conn=mysqli_connect("localhost","sun","kk514400","webproject");
             $no=$_GET['no'];
             session_start();
-            $sql="SELECT title, content, id, file from board where no=$no";
+            $sql="SELECT title, content, id, file, savefile from board where no=$no";
             $result=mysqli_query($conn,$sql);
             $row=mysqli_fetch_assoc($result);
 
@@ -121,7 +121,14 @@
  
         <tr>
             <td colspan="4" class="content" valign="top">
-            <?php echo $row['content']?></td>
+            <pre><?php echo $row['content']?></pre>
+            <?php 
+            $filesize=filesize("../upload/".$row['savefile']);
+            if($filesize>0){
+                echo '<img src="../upload/'.$row['savefile'].'" style="width:500px; height:auto;">';
+            }
+            ?>
+        </td>
         </tr>
         </table>
         <div>

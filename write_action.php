@@ -19,18 +19,18 @@
            // $max_file_size = 5242880;
            // $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
 
-            $tmpfile=$_FILES['b_file']['tmp_name'];
-            $o_name=$_FILES['b_file']['name'];
-            $filename=iconv("UTF-8", "EUC_KR",$_FILES['b_file']['name']);
-            
-            
-            $namearr=explode(".", $o_name);
-            $ext=$namearr[sizeof($namearr)-1];
+           $tmpfile=$_FILES['b_file']['tmp_name'];
+           $o_name=$_FILES['b_file']['name'];
+           $filename=iconv("UTF-8", "EUC_KR",$_FILES['b_file']['name']);
+           
+           
+           $namearr=explode(".", $o_name);
+           $ext=$namearr[sizeof($namearr)-1];
 
-            $tmp_filename = time() . '_' . mt_rand(0,99999) . '.' . strtolower($extension);
-            $thumbnail_file = $real_filename . '@@@' . $tmp_filename;
-            $folder="../upload/".$thumbnail_file;
-            move_uploaded_file($tmpfile,$folder);
+           $tmp_filename = time() . '_' . mt_rand(0,99999) . '.' . strtolower($ext);
+           $thumbnail_file = $o_name . '@@@' . $tmp_filename;
+           $folder="../upload/".$thumbnail_file;
+           move_uploaded_file($tmpfile,$folder);
 
             $sql="INSERT into board (title, content, id, file, savefile)
                 VALUES('{$title}','{$content}','{$id}','{$o_name}','{$thumbnail_file}')";  
