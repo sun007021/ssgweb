@@ -125,7 +125,7 @@
         </tr>
         </table>
         <div>
-            파일 : <a href="../upload/<?php echo $row['file'];?>" download><?php echo $row['file']; ?></a>
+            파일 : <a href="../upload/<?php echo $row['savefile'];?>" download><?php echo $row['file']; ?></a>
         </div>
  
     
