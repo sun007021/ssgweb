@@ -123,16 +123,16 @@
             <td colspan="4" class="content" valign="top">
             <pre><?php echo $row['content']?></pre>
             <?php 
-            $filesize=filesize("../upload/".$row['savefile']);
+            $filesize=filesize("/upload/".$row['savefile']);
             if($filesize>0){
-                echo '<img src="../upload/'.$row['savefile'].'" style="width:500px; height:auto;">';
+                echo '<img src="/upload/'.$row['savefile'].'" style="width:500px; height:auto;">';
             }
             ?>
         </td>
         </tr>
         </table>
         <div>
-            파일 : <a href="../upload/<?php echo $row['savefile'];?>" download><?php echo $row['file']; ?></a>
+            파일 : <a href="/upload/<?php echo $row['savefile'];?>" download><?php echo $row['file']; ?></a>
         </div>
  
     

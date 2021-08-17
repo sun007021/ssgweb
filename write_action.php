@@ -8,11 +8,12 @@
             $title=$_POST['title'];
             $content=$_POST['content'];
 
-            if(!isset($_FILES['b_file'])){
+	    $o_name=$_FILES['b_file']['name'];
+
+            if(!isset($o_name)){
                 $sql="INSERT into board (title, content, id)
                 VALUES('{$title}','{$content}','{$id}')";
             }
-            //파일
             else {
             //$ext_str = "hwp,xls,doc,xlsx,docx,pdf,jpg,gif,png,txt,ppt,pptx";
             //$allowed_extensions = explode(',', $ext_str);
@@ -20,7 +21,7 @@
            // $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
 
            $tmpfile=$_FILES['b_file']['tmp_name'];
-           $o_name=$_FILES['b_file']['name'];
+           
            $filename=iconv("UTF-8", "EUC_KR",$_FILES['b_file']['name']);
            
            
@@ -29,7 +30,7 @@
 
            $tmp_filename = time() . '_' . mt_rand(0,99999) . '.' . strtolower($ext);
            $thumbnail_file = $o_name . '@@@' . $tmp_filename;
-           $folder="../upload/".$thumbnail_file;
+           $folder="/upload/".$thumbnail_file;
            move_uploaded_file($tmpfile,$folder);
 
             $sql="INSERT into board (title, content, id, file, savefile)
