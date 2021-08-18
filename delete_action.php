@@ -16,7 +16,7 @@
         if($_SESSION['memberid']==$memberid){
             
             $sql2 = "DELETE from board where no=$no";
-            $result2=mysqli_query($conn,$sql);
+            $result2=mysqli_query($conn,$sql2);
     ?>
     <script>
         alert("삭제완료");
