@@ -10,13 +10,13 @@
 
 	    $o_name=$_FILES['b_file']['name'];
 
-            if(!isset($o_name)){
+            if($o_name){
                 $sql="INSERT into board (title, content, id)
                 VALUES('{$title}','{$content}','{$id}')";
             }
             else {
-            //$ext_str = "hwp,xls,doc,xlsx,docx,pdf,jpg,gif,png,txt,ppt,pptx";
-            //$allowed_extensions = explode(',', $ext_str);
+            $ext_str = "hwp,xls,doc,xlsx,docx,pdf,jpg,gif,png,txt,ppt,pptx";
+            $allowed_extensions = explode(',', $ext_str);
            // $max_file_size = 5242880;
            // $ext = substr($file['name'], strrpos($file['name'], '.') + 1);
 
@@ -24,13 +24,20 @@
            
            $filename=iconv("UTF-8", "EUC_KR",$_FILES['b_file']['name']);
            
-           
            $namearr=explode(".", $o_name);
            $ext=$namearr[sizeof($namearr)-1];
 
+           if( !in_array($ext,$allowed_extensions)){
+                echo ("
+                <script> alert('업로드 가능한 확장자 파일이 아닙니다.');
+                history.go(-1);
+                </script>");
+                exit;
+           }
+
            $tmp_filename = time() . '_' . mt_rand(0,99999) . '.' . strtolower($ext);
            $thumbnail_file = $o_name . '@@@' . $tmp_filename;
-           $folder="/upload/".$thumbnail_file;
+           $folder="upload/".$thumbnail_file;
            move_uploaded_file($tmpfile,$folder);
 
             $sql="INSERT into board (title, content, id, file, savefile)
