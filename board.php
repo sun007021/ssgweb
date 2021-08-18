@@ -80,7 +80,7 @@ session_start();
                 <td align=center width = "50"><?php echo $total?></td>
                 <td align=center width = "500">
                 <a href = "view.php?no=<?php echo $row['no']?>">
-                <?php echo $row['title']?></td>
+                <?php echo (htmlentities($row['title']))?></td>
                   <td align=center width = "100" ><?php echo $row['id']?></td>
                   
                 </tr>

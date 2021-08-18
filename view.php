@@ -111,7 +111,7 @@
         ?>
         <table class="table" align=center>
         <tr>
-            <td colspan="4" class="title"><?php echo $row['title']?></td>
+            <td colspan="4" class="title"><?php echo htmlentities($row['title'])?></td>
         </tr>
         <tr>
             <td class="id">작성자</td>
@@ -132,7 +132,7 @@
         </tr>
         </table>
         <div>
-            파일 : <a href="/upload/<?php echo $row['savefile'];?>" download><?php echo $row['file']; ?></a>
+            파일 : <a href="/upload/<?php echo $row['savefile'];?>" download><?php echo htmlentities($row['file']); ?></a>
         </div>
  
     
@@ -159,7 +159,7 @@
             ?>
             <div class="dap_lo">
                 <div><b><?php echo $row2['userid'];?></b></div>
-                <div class="dap_to"><?php echo $row2['recontent'];?></div>
+                <div class="dap_to"><?php echo htmlentities($row2['recontent']);?></div>
             </div>
             <?php }?>
         <!--</div> ef-->
