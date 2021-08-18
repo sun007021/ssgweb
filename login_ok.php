@@ -8,7 +8,13 @@
 
             $lid=$_POST['id'];
             $lpw=$_POST['pw'];
-
+            $disable_id="/[`~!@#$%^&*|\\\'\";:\/?^=^+_()<>]/";
+            if(preg_match($disable_id, $lid)){
+                echo("<script> alert('아이디에 특수문자는 사용 불가능합니다');
+                history.go(-1);
+                </script>");
+                exit;
+            }
             $sql="SELECT*FROM member WHERE memberid='{$lid}'";
             $result=mysqli_query($conn, $sql);
 
@@ -34,6 +40,7 @@
         ?>
         <script>
         alert("로그인에 실패하였습니다");
+        history.go(-1);
         </script>
         <?php
          }
