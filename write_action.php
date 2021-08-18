@@ -10,11 +10,7 @@
 
 	    $o_name=$_FILES['b_file']['name'];
 
-            if($o_name){
-                $sql="INSERT into board (title, content, id)
-                VALUES('{$title}','{$content}','{$id}')";
-            }
-            else {
+            if($o_name !="" && isset($_FILES['b_file'])) {
             $ext_str = "hwp,xls,doc,xlsx,docx,pdf,jpg,gif,png,txt,ppt,pptx";
             $allowed_extensions = explode(',', $ext_str);
            // $max_file_size = 5242880;
@@ -42,6 +38,10 @@
 
             $sql="INSERT into board (title, content, id, file, savefile)
                 VALUES('{$title}','{$content}','{$id}','{$o_name}','{$thumbnail_file}')";  
+            }
+            else {
+                $sql="INSERT into board (title, content, id)
+                VALUES('{$title}','{$content}','{$id}')";
             }
            
             
