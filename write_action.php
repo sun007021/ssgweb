@@ -3,10 +3,11 @@
     <head></head>
     <body>
         <?php 
+        session_start();
             $conn=mysqli_connect("localhost","sun","kk514400","webproject");
-            $id=$_POST['name'];
-            $title=$_POST['title'];
-            $content=$_POST['content'];
+            $id=$_SESSION['memberid'];
+            $title=mysqli_real_escape_string($conn, $_POST['title']);
+            $content=mysqli_real_escape_string($_POST['content']);
 
 	    $o_name=$_FILES['b_file']['name'];
 
