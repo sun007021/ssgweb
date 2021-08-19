@@ -4,7 +4,13 @@
 <body>
 <?php
     session_start();
-    
+    if (!isset($_SESSION['memberid'])){
+        echo ("
+        <script> alert('로그인이 필요합니다');
+        history.go(-1);
+        </script>");
+        exit;
+    }
 ?>
     <form method = "post" action = "write_action.php" enctype="multipart/form-data">
     <table  style="padding-top:50px" align = center width=700 border=0 cellpadding=2 >
